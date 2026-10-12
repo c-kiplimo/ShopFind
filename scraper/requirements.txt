@@ -1,0 +1,39 @@
+# ShopFind Scraper Dependencies
+
+# Web Scraping
+selenium==4.15.2
+beautifulsoup4==4.12.2
+requests==2.31.0
+lxml==4.9.3
+
+# Instagram/Social Media
+instaloader==4.10.3
+
+# Database
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.23
+
+# Data Processing
+pandas==2.1.3
+numpy==1.26.2
+
+# Image Processing
+Pillow==10.1.0
+
+# Scheduling
+APScheduler==3.10.4
+
+# Configuration
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Logging
+loguru==0.7.2
+
+# Testing
+pytest==7.4.3
+pytest-mock==3.12.0

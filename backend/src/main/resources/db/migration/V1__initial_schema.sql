@@ -1,5 +1,5 @@
 -- V1__initial_schema.sql
--- ShopScout Database Schema
+-- ShopFind Database Schema
 
 -- Products table
 CREATE TABLE products (
