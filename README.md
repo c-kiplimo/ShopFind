@@ -1,10 +1,10 @@
-# ShopScout
+# ShopFind
 
 **Kenya's Social Commerce Search Engine** - Discover products from Instagram, TikTok, and Facebook sellers.
 
 ## 🎯 Overview
 
-ShopScout is a comprehensive social commerce search platform that helps Kenyan buyers discover products from social media sellers across Instagram, TikTok, and Facebook. Built with a modern reactive architecture using Kotlin + Spring Boot WebFlux on the backend and Next.js on the frontend.
+ShopFind is a comprehensive social commerce search platform that helps Kenyan buyers discover products from social media sellers across Instagram, TikTok, and Facebook. Built with a modern reactive architecture using Kotlin + Spring Boot WebFlux on the backend and Next.js on the frontend.
 
 ## ✨ Features
 
@@ -36,8 +36,8 @@ ShopScout is a comprehensive social commerce search platform that helps Kenyan b
 
 ```
 backend/
-├── src/main/kotlin/com/shopscout/
-│   ├── ShopScoutApplication.kt
+├── src/main/kotlin/com/shopfind/
+│   ├── ShopFindApplication.kt
 │   ├── domain/                      # Domain Layer (DDD)
 │   │   ├── model/                   # Rich domain entities
 │   │   │   ├── Product.kt          # Product aggregate
@@ -111,8 +111,8 @@ backend/
 
 1. **Start PostgreSQL** (using Docker):
 ```bash
-docker run --name shopscout-postgres \
-  -e POSTGRES_DB=shopscout \
+docker run --name shopfind-postgres \
+  -e POSTGRES_DB=shopfind \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -p 5432:5432 \
@@ -121,24 +121,24 @@ docker run --name shopscout-postgres \
 
 2. **Or use existing PostgreSQL**:
 ```sql
-CREATE DATABASE shopscout;
+CREATE DATABASE shopfind;
 CREATE USER postgres WITH PASSWORD 'postgres';
-GRANT ALL PRIVILEGES ON DATABASE shopscout TO postgres;
+GRANT ALL PRIVILEGES ON DATABASE shopfind TO postgres;
 ```
 
 ### Backend Setup
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/c-kiplimo/ShopScout-.git
-cd ShopScout-/backend
+git clone https://github.com/c-kiplimo/ShopFind-.git
+cd ShopFind-/backend
 ```
 
 2. **Configure database** (optional, edit `application.yml`):
 ```yaml
 spring:
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/shopscout
+    url: r2dbc:postgresql://localhost:5432/shopfind
     username: postgres
     password: postgres
 ```
@@ -260,12 +260,12 @@ curl -X POST "http://localhost:8080/api/products" \
 
 **Default** (`application.yml`):
 - Port: 8080
-- Database: `shopscout`
+- Database: `shopfind`
 - Logging: DEBUG
 
 **Dev** (`application-dev.yml`):
 - Port: 8081
-- Database: `shopscout_dev`
+- Database: `shopfind_dev`
 
 **Prod** (`application-prod.yml`):
 - Port: from `$PORT`
@@ -276,8 +276,8 @@ curl -X POST "http://localhost:8080/api/products" \
 
 ```bash
 # Production
-export DATABASE_URL=r2dbc:postgresql://host:5432/shopscout
-export DATABASE_JDBC_URL=jdbc:postgresql://host:5432/shopscout
+export DATABASE_URL=r2dbc:postgresql://host:5432/shopfind
+export DATABASE_JDBC_URL=jdbc:postgresql://host:5432/shopfind
 export DB_USERNAME=username
 export DB_PASSWORD=password
 export PORT=8080
@@ -317,20 +317,20 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 
 ```bash
 # Build
-docker build -t shopscout-backend .
+docker build -t shopfind-backend .
 
 # Run
 docker run -p 8080:8080 \
-  -e DATABASE_URL=r2dbc:postgresql://host:5432/shopscout \
+  -e DATABASE_URL=r2dbc:postgresql://host:5432/shopfind \
   -e DB_USERNAME=postgres \
   -e DB_PASSWORD=postgres \
-  shopscout-backend
+  shopfind-backend
 ```
 
 ### Heroku
 
 ```bash
-heroku create shopscout-api
+heroku create shopfind-api
 heroku addons:create heroku-postgresql:mini
 git push heroku develop:master
 ```
@@ -383,4 +383,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-**ShopScout** - Connecting Kenyan buyers with social commerce sellers 🇰🇪
+**ShopFind** - Connecting Kenyan buyers with social commerce sellers 🇰🇪
